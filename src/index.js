@@ -2,16 +2,10 @@
 const Helper = require('./helper');
 
 class Logger {
-  constructor(loggerConfig, active, options) {
-    this.loggerConfig = loggerConfig || Helper.getDefaultLoggerConfig();
-    if (!loggerConfig) {
-      this.active = Helper.getDefaultActive();
-    } else if (loggerConfig && !active) {
-      this.active = Helper.generateActive(this.loggerConfig);
-    } else {
-      this.active = active;
-    }
-    this.options = options || Helper.getDefaultOptions();
+  constructor() {
+    this.loggerConfig = Helper.getDefaultLoggerConfig();
+    this.active = Helper.getDefaultActive();
+    this.options = Helper.getDefaultOptions();
     this._init();
   }
 
@@ -25,6 +19,19 @@ class Logger {
 
   setOptions(options) {
     this.options = options;
+  }
+
+  setup(loggerConfig, active, options) {
+    this.loggerConfig = loggerConfig || Helper.getDefaultLoggerConfig();
+    if (!loggerConfig) {
+      this.active = Helper.getDefaultActive();
+    } else if (loggerConfig && !active) {
+      this.active = Helper.generateActive(this.loggerConfig);
+    } else {
+      this.active = active;
+    }
+    this.options = options || Helper.getDefaultOptions();
+    this._init();
   }
 
   _init() {
