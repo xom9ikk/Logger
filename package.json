@@ -1,0 +1,35 @@
+{
+  "name": "@xom9ik/logger",
+  "version": "0.3.0",
+  "description": "Color logger with enable/disable log levels",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xom9ikk/Logger.git"
+  },
+  "keywords": [
+    "logger",
+    "debug"
+  ],
+  "author": "xom9ik <xom9ik.code@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xom9ikk/Logger/issues"
+  },
+  "homepage": "https://github.com/xom9ikk/Logger#readme",
+  "dependencies": {
+    "chalk": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3"
+  }
+}
