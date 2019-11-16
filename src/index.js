@@ -71,5 +71,5 @@ class Logger {
 
 module.exports = {
   colors: Helper.getDefaultColors(),
-  Logger,
+  logger: Logger,
 };
