@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-underscore-dangle,class-methods-use-this */
 const Helper = require('./helper');
 
 class Logger {
@@ -7,6 +7,10 @@ class Logger {
     this.active = Helper.getDefaultActive();
     this.options = Helper.getDefaultOptions();
     this._init();
+  }
+
+  getColors() {
+    return Helper.getDefaultColors();
   }
 
   setLoggerConfig(loggerConfig) {
@@ -69,7 +73,4 @@ class Logger {
   }
 }
 
-module.exports = {
-  colors: Helper.getDefaultColors(),
-  logger: new Logger(),
-};
+module.exports = new Logger();

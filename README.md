@@ -8,7 +8,7 @@ $ npm install @xom9ik/logger
 
 ### Basic logger
 ```js
-const { logger } = require('@xom9ik/logger');
+const logger = require('@xom9ik/logger');
 
 logger.server.info('Server has been started');
 logger.mogodb.info('MongoDB connection established');
@@ -21,7 +21,7 @@ logger.grpc.error('An unsuccessful attempt to start the GRPC server');
 It is possible to set your types and levels, the choice of custom colors.
 To do this, pass 3 optional parameters to the `setup` method. `loggerConfig`,` activeLogs`, `options`
 ```js
-const { logger } = require('@xom9ik/logger');
+const logger = require('@xom9ik/logger');
 ```
 
 ## Setup params
@@ -62,6 +62,7 @@ Represents an object, with type fields and an array for levels (if any). When co
 - `yellow`
 - `lightGreen`
 - `lightBlue`
+To get an object with all the `colors`, you can call the `getColors` method
 
 ### Example `loggerConfig`
 ```js
