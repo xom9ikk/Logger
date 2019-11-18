@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle,class-methods-use-this */
 const Helper = require('./helper');
+const { palettes } = require('./config/palettes');
 
 class Logger {
   constructor() {
@@ -7,10 +8,52 @@ class Logger {
     this.active = Helper.getDefaultActive();
     this.options = Helper.getDefaultOptions();
     this._init();
+    this.server = {
+      error: (...args) => {
+        this._defaultHandler('server', 'error', ...args);
+      },
+      warning: (...args) => {
+        this._defaultHandler('server', 'warning', ...args);
+      },
+      info: (...args) => {
+        this._defaultHandler('server', 'info', ...args);
+      },
+      trace: (...args) => {
+        this._defaultHandler('server', 'trace', ...args);
+      },
+    };
+    this.client = {
+      error: (...args) => {
+        this._defaultHandler('client', 'error', ...args);
+      },
+      warning: (...args) => {
+        this._defaultHandler('client', 'warning', ...args);
+      },
+      info: (...args) => {
+        this._defaultHandler('client', 'info', ...args);
+      },
+      trace: (...args) => {
+        this._defaultHandler('client', 'trace', ...args);
+      },
+    };
+    this.database = {
+      error: (...args) => {
+        this._defaultHandler('database', 'error', ...args);
+      },
+      warning: (...args) => {
+        this._defaultHandler('database', 'warning', ...args);
+      },
+      info: (...args) => {
+        this._defaultHandler('database', 'info', ...args);
+      },
+      trace: (...args) => {
+        this._defaultHandler('database', 'trace', ...args);
+      },
+    };
   }
 
-  getColors() {
-    return Helper.getDefaultColors();
+  getPalettes() {
+    return palettes;
   }
 
   setLoggerConfig(loggerConfig) {
@@ -40,36 +83,50 @@ class Logger {
 
   _init() {
     this.logTypes = Object.keys(this.loggerConfig);
-    const { spaceSymbol, reverseOrder } = this.options;
 
-    this.logTypes.forEach((typeName) => {
-      const { color: typeColor } = this.loggerConfig[typeName];
-      if (!this.loggerConfig[typeName].levels) {
-        this[typeName] = (...args) => {
-          if (Helper.isActive(this.active, typeName)) {
-            const logString = `${Helper.generateLog(typeName, typeColor)}`;
-            console.log(`${Helper.logTime()} ${logString}`, ...args);
-          }
+    this.logTypes.forEach((scopeName) => {
+      const { color: scopeColor } = this.loggerConfig[scopeName];
+      if (!this.loggerConfig[scopeName].levels) {
+        this[scopeName] = (...args) => {
+          this._log(scopeName, scopeColor, ...args);
         };
       } else {
-        const levelNames = Object.keys(this.loggerConfig[typeName].levels);
+        const levelNames = Object.keys(this.loggerConfig[scopeName].levels);
         levelNames.forEach((levelName) => {
-          const levelColor = this.loggerConfig[typeName].levels[levelName];
-          if (!this[typeName]) {
-            this[typeName] = {};
+          const levelColor = this.loggerConfig[scopeName].levels[levelName];
+          if (!this[scopeName]) {
+            this[scopeName] = {};
           }
-          this[typeName][levelName] = (...args) => {
-            if (Helper.isActive(this.active, typeName, levelName)) {
-              let logString = `${Helper.generateLog(typeName, typeColor)}${spaceSymbol}${Helper.generateLog(levelName, levelColor)}`;
-              if (reverseOrder) {
-                logString = logString.split(spaceSymbol).reverse().join(spaceSymbol);
-              }
-              console.log(`${Helper.logTime()} ${logString}`, ...args);
-            }
+          this[scopeName][levelName] = (...args) => {
+            this._logWithLevel(scopeName, scopeColor, levelName, levelColor, ...args);
           };
         });
       }
     });
+  }
+
+  _defaultHandler(scopeName, levelName, ...args) {
+    const scopeColor = this.loggerConfig[scopeName].color;
+    const levelColor = this.loggerConfig[scopeName].levels[levelName];
+    this._logWithLevel(scopeName, scopeColor, levelName, levelColor, ...args);
+  }
+
+  _logWithLevel(scopeName, scopeColor, levelName, levelColor, ...args) {
+    const { spaceSymbol, reverseOrder } = this.options;
+    if (Helper.isActive(this.active, scopeName, levelName)) {
+      let logString = `${Helper.generateLog(scopeName, scopeColor)}${spaceSymbol}${Helper.generateLog(levelName, levelColor)}`;
+      if (reverseOrder) {
+        logString = logString.split(spaceSymbol).reverse().join(spaceSymbol);
+      }
+      console.log(`${Helper.logTime()} ${logString}`, ...args);
+    }
+  }
+
+  _log(scopeName, scopeColor, ...args) {
+    if (Helper.isActive(this.active, scopeName)) {
+      const logString = `${Helper.generateLog(scopeName, scopeColor)}`;
+      console.log(`${Helper.logTime()} ${logString}`, ...args);
+    }
   }
 }
 

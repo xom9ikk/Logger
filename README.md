@@ -1,12 +1,31 @@
-## Install
+# @xom9ik/logger
 
-```console
-$ npm install @xom9ik/logger
+> Logger with scopes
+
+## ✨ Features
+- 🧨 possibility of changing scopes;
+- 💎 many colors;
+- 💣 fully customizable
+- 📎 simple API.
+
+
+## 🧲 Install
+
+### 📦 Via NPM
+
+```bash
+npm install @xom9ik/logger --save
 ```
 
-## Usage
+### 🧶 Via Yarn
 
-### Basic logger
+```bash
+yarn add @xom9ik/logger
+```
+
+## 🔥 Usage
+
+### 💪 Basic logger
 ```js
 const logger = require('@xom9ik/logger');
 
@@ -16,42 +35,44 @@ logger.mogodb.warning('MongoDB connection established without credentials');
 logger.grpc.error('An unsuccessful attempt to start the GRPC server');
 ```
 
-### Custom logger
+### ⚙️ Custom logger
 
-It is possible to set your types and levels, the choice of custom colors.
+It is possible to set your scopes and levels, the choice of custom colors.
 To do this, pass 3 optional parameters to the `setup` method. `loggerConfig`,` activeLogs`, `options`
 ```js
 const logger = require('@xom9ik/logger');
+
+logger.setup(loggerConfig, [activeLogs, options]);
 ```
 
 ## Setup params
 
 ### loggerConfig
-Represents an object, with fields, which is an object for representing a type.
-The field type includes `color` and` levels`.
-`color` - is the color for the type.
+Represents an object, with fields, which is an object for representing a scope.
+The field scope includes `color` and` levels`.
+`color` - is the color for the scope.
 `levels` - an object for representing levels, where the value is the color for the level.
 
-### activeTypes
-Represents an object, with type fields and an array for levels (if any). When configuring a logger without levels, the value `true` is used.
+### activeLogs
+Represents an object, with scope fields and an array for levels (if any). When configuring a logger without levels, the value `true` is used.
 
 ### options
-- `reverseOrder` - Changes the output order for type and level. The default is `false`.
+- `reverseOrder` - Changes the output order for scope and level. The default is `false`.
 - `timestamp` - Time display in the format `1970/00/00 01: 01: 01.001`. The default is `true`.
-- `spaceSymbol` - A symbol that separates type and level. The default is `space`.
+- `spaceSymbol` - A symbol that separates scope and level. The default is `space`.
 
 ## Info
 
 ### Basic Types
 - `server`
-- `mongodb`
-- `socket`
-- `grpc`
+- `client`
+- `database`
 
 ### Basic Levels
-- `info`
-- `warning`
 - `error`
+- `warning`
+- `info`
+- `trace`
 
 ### Basic Colors
 - `gray`
@@ -82,7 +103,7 @@ const loggerConfig = {
     color: colors.fountainBlue,
     levels: {
       data: colors.lightGreen,
-      systemInfo: colors.black,
+      systemInfo: colors.gray,
     },
   },
   beautifulType: {
@@ -97,11 +118,12 @@ const loggerConfig = {
 };
 ```
 
-### Example `activeTypes`
+### Example `activeLogs`
 ```js
 const activeLogs = {
     server: true,
-    mongodb: ['info', 'warning', 'error'],
+    client: ['info', 'warning', 'error'],
+    database: ['warning'],
     grpc: ['data', 'systemInfo'],
     beautifulType: ['yourFirstLevel', 'fourth'],
 };
@@ -127,5 +149,5 @@ logger.beautifulType.second('This level is not activated, messages will not be d
 ```
 
 ```js
-logger.server('This type has no levels'); // 1970/00/00 01:01:01.001 [SERVER] This type has no levels
+logger.server('This scope has no levels'); // 1970/00/00 01:01:01.001 [SERVER] This scope has no levels
 ```

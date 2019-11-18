@@ -1,7 +1,8 @@
-const { colors } = require('./colors');
+const { palettes } = require('./palettes');
 
 module.exports.levelColors = {
-  info: colors.green,
-  warning: colors.orange,
-  error: colors.red,
+  error: palettes.flat.alizarin,
+  warning: palettes.flat.orange,
+  info: palettes.flat.nephritis,
+  trace: palettes.flat.silver,
 };

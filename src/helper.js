@@ -1,29 +1,21 @@
 const chalk = require('chalk');
 
-const { colors } = require('./config/colors');
+const { palettes } = require('./config/palettes');
 const { levelColors } = require('./config/levelColors');
 
 class Helper {
-  static getDefaultColors() {
-    return colors;
-  }
-
   static getDefaultLoggerConfig() {
     return {
       server: {
-        color: colors.blue,
+        color: palettes.flat.peterRiver,
         levels: levelColors,
       },
-      mongodb: {
-        color: colors.yellow,
+      client: {
+        color: palettes.flat.sunFlower,
         levels: levelColors,
       },
-      socket: {
-        color: colors.lightGreen,
-        levels: levelColors,
-      },
-      grpc: {
-        color: colors.fountainBlue,
+      database: {
+        color: palettes.flat.amethyst,
         levels: levelColors,
       },
     };
@@ -33,15 +25,15 @@ class Helper {
     const defaultActiveLog = Object.keys(levelColors);
     return {
       server: defaultActiveLog,
-      mongodb: defaultActiveLog,
-      socket: defaultActiveLog,
-      grpc: defaultActiveLog,
+      client: defaultActiveLog,
+      database: defaultActiveLog,
     };
   }
 
   static getDefaultOptions() {
     return {
       reverseOrder: false,
+      timestamp: true,
       spaceSymbol: ' ',
     };
   }
