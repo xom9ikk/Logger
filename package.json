@@ -13,8 +13,14 @@
     "url": "git+https://github.com/xom9ikk/Logger.git"
   },
   "keywords": [
+    "log",
+    "logging",
     "logger",
-    "debug"
+    "debug",
+    "rgb",
+    "node",
+    "formatting",
+    "customize"
   ],
   "author": "xom9ik <xom9ik.code@gmail.com>",
   "license": "MIT",
