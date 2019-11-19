@@ -32,6 +32,7 @@ const logger = require('@xom9ik/logger');
 logger.server.info('Server has been started');
 logger.database.trace('MongoDB connection established');
 logger.client.error('Connection to wss://server.com/ refused');
+logger.client.debug(`User data for ${id}:`, data);
 ```
 
 ### ⚙️ Custom logger
@@ -72,6 +73,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 - `warning`
 - `info`
 - `trace`
+- `debug`
 
 ### Basic Palettes
 ![palettes preview](https://raw.githubusercontent.com/xom9ikk/Logger/dev/palettes.jpg)
