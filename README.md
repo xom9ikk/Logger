@@ -83,6 +83,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 - `dutch`
 - `french`
 - `german`
+
 To get an object with all the `palettes`, you can call the `getPalettes` method
 
 ### 🧭 Example `loggerConfig`
@@ -148,3 +149,7 @@ logger.server('This scope has no levels');
 logger.beautifulType.second('This level is not activated, messages will not be displayed');
 ```
 
+## Thanks to:
+
+- `🌸 flatuicolors for inspirational colors`; (https://flatuicolors.com)
+- `📦 to the package Chalk for the provided functionality`; (https://www.npmjs.com/package/chalk)
