@@ -57,7 +57,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 
 ### options
 - `reverseOrder` - Changes the output order for scope and level. The default is `false`.
-- `timestamp` - Time display in the format `1970/00/00 01: 01: 01.001`. The default is `true`.
+- `timestamp` - Time display in the format `1970/00/00 01:01:01.001`. The default is `true`.
 - `spaceSymbol` - A symbol that separates scope and level. The default is `space`.
 
 ## 💡 Info
