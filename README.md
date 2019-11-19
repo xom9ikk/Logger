@@ -74,6 +74,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 - `trace`
 
 ### Basic Palettes
+![palettes preview]()
 - `flat`
 - `american`
 - `aussie`
