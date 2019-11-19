@@ -157,4 +157,4 @@ logger.beautifulType.second('This level is not activated, messages will not be d
 ## Thanks to:
 
 - `🌸 flatuicolors for inspirational colors`; [https://flatuicolors.com](https://flatuicolors.com)
-- `📦 to the package Chalk for the provided functionality`; [https://www.npmjs.com/package/chalk](https://www.npmjs.com/package/chalk)
+- `📦 package Chalk for the provided functionality`; [https://www.npmjs.com/package/chalk](https://www.npmjs.com/package/chalk)
