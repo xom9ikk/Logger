@@ -78,7 +78,7 @@ class Helper {
     const minutes = Helper.normalizeNumber(now.getMinutes());
     const seconds = Helper.normalizeNumber(now.getSeconds());
     const milliseconds = now.getMilliseconds();
-    return `${year}/${month}/${date} ${hours}:${minutes}:${seconds}:${milliseconds}`;
+    return `${year}/${month}/${date} ${hours}:${minutes}:${seconds}.${milliseconds}`;
   }
 
   static normalizeNumber(num) {
