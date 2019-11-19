@@ -5,4 +5,5 @@ module.exports.levelColors = {
   warning: palettes.flat.orange,
   info: palettes.flat.nephritis,
   trace: palettes.flat.silver,
+  debug: palettes.flat.wisteria,
 };

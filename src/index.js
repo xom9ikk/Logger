@@ -21,6 +21,9 @@ class Logger {
       trace: (...args) => {
         this._defaultHandler('server', 'trace', ...args);
       },
+      debug: (...args) => {
+        this._defaultHandler('database', 'debug', ...args);
+      },
     };
     this.client = {
       error: (...args) => {
@@ -35,6 +38,9 @@ class Logger {
       trace: (...args) => {
         this._defaultHandler('client', 'trace', ...args);
       },
+      debug: (...args) => {
+        this._defaultHandler('database', 'debug', ...args);
+      },
     };
     this.database = {
       error: (...args) => {
@@ -48,6 +54,9 @@ class Logger {
       },
       trace: (...args) => {
         this._defaultHandler('database', 'trace', ...args);
+      },
+      debug: (...args) => {
+        this._defaultHandler('database', 'debug', ...args);
       },
     };
   }
