@@ -86,7 +86,8 @@ Represents an object, with scope fields and an array for levels (if any). When c
 
 To get an object with all the `palettes`, you can call the `getPalettes` method
 
-### 🧭 Example `loggerConfig`
+## 🧭 Examples
+### `loggerConfig`
 ```js
 const loggerConfig = {
   server: {
@@ -119,7 +120,7 @@ const loggerConfig = {
 };
 ```
 
-### Example `activeLogs`
+### `activeLogs`
 ```js
 const activeLogs = {
     server: ['info', 'error'],
@@ -129,7 +130,8 @@ const activeLogs = {
 };
 ```
 
-### Example `options`
+
+### `options`
 ```js
 const options = {
     reverseOrder: false,
@@ -141,7 +143,7 @@ const options = {
 ### Output
 ```js
 logger.beautifulType.yourFirstLevel('Please, output this log message');
-// 1970/00/00 01:01:01.001 [BEAUTIFULTYPE] [YOURFIRSTLEVEL] Please, output this log message
+// 1970/00/00 01:01:01.001 [BEAUTIFULTYPE] - [YOURFIRSTLEVEL] Please, output this log message
 
 logger.server('This scope has no levels');
 // 1970/00/00 01:01:01.001 [SERVER] This scope has no levels
@@ -151,5 +153,5 @@ logger.beautifulType.second('This level is not activated, messages will not be d
 
 ## Thanks to:
 
-- `🌸 flatuicolors for inspirational colors`; (https://flatuicolors.com)
-- `📦 to the package Chalk for the provided functionality`; (https://www.npmjs.com/package/chalk)
+- `🌸 flatuicolors for inspirational colors`; [https://flatuicolors.com](https://flatuicolors.com)
+- `📦 to the package Chalk for the provided functionality`; [https://www.npmjs.com/package/chalk](https://www.npmjs.com/package/chalk)
