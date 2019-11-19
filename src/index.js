@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle,class-methods-use-this */
 const Helper = require('./helper');
-const { palettes } = require('./config/palettes');
+const palettes = require('./config/palettes');
 
 class Logger {
   constructor() {

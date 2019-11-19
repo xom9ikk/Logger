@@ -1,4 +1,4 @@
-const { palettes } = require('./palettes');
+const palettes = require('./palettes');
 
 module.exports.levelColors = {
   error: palettes.flat.alizarin,

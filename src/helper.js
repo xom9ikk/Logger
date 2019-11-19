@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 
-const { palettes } = require('./config/palettes');
+const palettes = require('./config/palettes');
 const { levelColors } = require('./config/levelColors');
 
 class Helper {
