@@ -60,7 +60,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 - `timestamp` - Time display in the format `1970/00/00 01: 01: 01.001`. The default is `true`.
 - `spaceSymbol` - A symbol that separates scope and level. The default is `space`.
 
-## Info
+## 💡 Info
 
 ### Basic Scopes
 - `server`
@@ -85,7 +85,7 @@ Represents an object, with scope fields and an array for levels (if any). When c
 - `german`
 To get an object with all the `palettes`, you can call the `getPalettes` method
 
-### Example `loggerConfig`
+### 🧭 Example `loggerConfig`
 ```js
 const loggerConfig = {
   server: {
