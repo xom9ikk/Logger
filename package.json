@@ -1,6 +1,6 @@
 {
   "name": "@xom9ik/logger",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Color logger with enable/disable log levels",
   "main": "./src/index.js",
   "scripts": {
