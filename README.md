@@ -5,8 +5,8 @@
 ## ✨ Features
 - 🧨 possibility of changing scopes;
 - 💎 many palettes with amazing colors;
-- 💣 fully customizable
-- 📎 simple API.
+- 💣 fully customizable;
+- 📎 simple API;
 
 
 ## 🧲 Install
@@ -111,10 +111,10 @@ const loggerConfig = {
       systemInfo: palettes.flat.belizeHole,
     },
   },
-  beautifulType: {
+  beautifulScope: {
     color: palettes.flat.wisteria,
     levels: {
-      yourFirstLevel: "#f7ea98",
+      yourCustomLogLevel: "#f7ea98",
       second: palettes.flat.mightBlue,
       third: "#9e4267",
       fourth: "#736408",
@@ -126,10 +126,10 @@ const loggerConfig = {
 ### `activeLogs`
 ```js
 const activeLogs = {
-    server: ['info', 'error'],
+    server: true,
     client: ['info', 'warning', 'error'],
     database: ['warning'],
-    beautifulType: ['yourFirstLevel', 'fourth'],
+    beautifulScope: ['yourCustomLogLevel', 'fourth'],
 };
 ```
 
@@ -145,13 +145,13 @@ const options = {
 
 ### Output
 ```js
-logger.beautifulType.yourFirstLevel('Please, output this log message');
-// 1970/00/00 01:01:01.001 [BEAUTIFULTYPE] - [YOURFIRSTLEVEL] Please, output this log message
+logger.beautifulScope.yourCustomLogLevel('Please, output this log message');
+// 1970/00/00 01:01:01.001 [BEAUTIFULSCOPE] - [YOURCUSTOMLOGLEVEL] Please, output this log message
 
 logger.server('This scope has no levels');
 // 1970/00/00 01:01:01.001 [SERVER] This scope has no levels
 
-logger.beautifulType.second('This level is not activated, messages will not be displayed');
+logger.beautifulScope.second('This level is not activated, messages will not be displayed');
 ```
 
 ## Thanks to:
