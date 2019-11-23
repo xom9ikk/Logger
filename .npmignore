@@ -1,2 +1,9 @@
+.DS_Store
 /node_modules
 /tests
+palletes.log
+\.idea
+\.eslintrc
+\.huskyrc
+\.lintstagedrc
+README.md
