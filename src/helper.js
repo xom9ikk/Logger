@@ -40,11 +40,11 @@ class Helper {
 
   static generateActive(loggerConfig) {
     const active = {};
-    Object.keys(loggerConfig).forEach((type) => {
-      active[type] = [];
-      if (loggerConfig[type].levels) {
-        Object.keys(loggerConfig[type].levels).forEach((level) => {
-          active[type].push(level);
+    Object.keys(loggerConfig).forEach((scope) => {
+      active[scope] = [];
+      if (loggerConfig[scope].levels) {
+        Object.keys(loggerConfig[scope].levels).forEach((level) => {
+          active[scope].push(level);
         });
       }
     });
@@ -55,13 +55,13 @@ class Helper {
     return `${chalk.bold.hex(color)(`[${value.toUpperCase()}]`)}`;
   }
 
-  static isActive(active, type, level) {
-    const isActiveType = Object.keys(active).includes(type);
-    if (!isActiveType) {
+  static isActive(active, scope, level) {
+    const isActiveScope = Object.keys(active).includes(scope);
+    if (!isActiveScope) {
       return false;
     }
     if (level) {
-      const isActiveLevel = active[type].includes(level);
+      const isActiveLevel = active[scope].includes(level);
       if (!isActiveLevel) {
         return false;
       }

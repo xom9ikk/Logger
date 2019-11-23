@@ -22,7 +22,7 @@ class Logger {
         this._defaultHandler('server', 'trace', ...args);
       },
       debug: (...args) => {
-        this._defaultHandler('database', 'debug', ...args);
+        this._defaultHandler('server', 'debug', ...args);
       },
     };
     this.client = {
@@ -39,7 +39,7 @@ class Logger {
         this._defaultHandler('client', 'trace', ...args);
       },
       debug: (...args) => {
-        this._defaultHandler('database', 'debug', ...args);
+        this._defaultHandler('client', 'debug', ...args);
       },
     };
     this.database = {
