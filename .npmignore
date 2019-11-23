@@ -1,9 +1,11 @@
 .DS_Store
 /node_modules
 /tests
-palletes.log
+palettes.jpg
 \.idea
 \.eslintrc
 \.huskyrc
 \.lintstagedrc
 README.md
+package
+*.tgz

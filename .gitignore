@@ -2,3 +2,5 @@
 /node_modules
 /tests
 \.idea
+package
+*.tgz
