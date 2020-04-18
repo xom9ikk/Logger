@@ -1,7 +1,8 @@
 .DS_Store
 /node_modules
 /tests
-/palettes.jpg
+/*.jpg
+/*.png
 \.idea
 \.eslintrc
 \.huskyrc

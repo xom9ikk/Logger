@@ -1,7 +1,7 @@
 # @xom9ik/logger
 
 > Logger with scopes
-
+![logger preview](https://raw.githubusercontent.com/xom9ikk/Logger/dev/example.png)
 ## ✨ Features
 - 🧨 possibility of changing scopes;
 - 💎 many palettes with amazing colors;
